@@ -29,12 +29,12 @@ public class SesionesController {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<SesionDto>> sesionesVigentes() {
+    public ResponseEntity<List<SesionDto>> sesionesActivas() {
         return new ResponseEntity<>(sesionesService.sesionesActivas(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{sesionId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> validarSesion(@PathVariable(name = "sesionId") String sesionId ) {
+    public ResponseEntity<Void> validarSiExisteSesion(@PathVariable(name = "sesionId") String sesionId ) {
         sesionesService.validarSiExisteSesion(getSesionDto(sesionId));
         log.info(Constantes.SESION_VALIDA);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -50,6 +50,7 @@ public class SesionesController {
     @RequestMapping(value = "/{sesionId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> cerrarSesion(@PathVariable(name = "sesionId") String sesionId ) {
         sesionesService.cerrarSesion(getSesionDto(sesionId));
+        log.info(Constantes.SESION_CERRADA);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

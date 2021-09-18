@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8877",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/sesiones": {
+      "get": {
+        "tags": [
+          "sesiones-controller"
+        ],
+        "operationId": "sesionesActivas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SesionDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "sesiones-controller"
+        ],
+        "operationId": "nuevaSesion",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SesionDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sesiones/{sesionId}": {
+      "get": {
+        "tags": [
+          "sesiones-controller"
+        ],
+        "operationId": "validarSiExisteSesion",
+        "parameters": [
+          {
+            "name": "sesionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "sesiones-controller"
+        ],
+        "operationId": "cerrarSesion",
+        "parameters": [
+          {
+            "name": "sesionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SesionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  }
+}
