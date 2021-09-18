@@ -35,7 +35,7 @@ public class SesionesService {
         sesionesRepository.deleteById(sesionDto.getId());
     }
 
-    private void validarSiExisteSesion(SesionDto sesionDto) {
+    public void validarSiExisteSesion(SesionDto sesionDto) {
         if (sesionesRepository.findById(sesionDto.getId()).isEmpty())
             throw new NoExisteException(Constantes.SESION_NO_EXISTE);
     }

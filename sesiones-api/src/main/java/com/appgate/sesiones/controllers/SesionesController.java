@@ -33,6 +33,13 @@ public class SesionesController {
         return new ResponseEntity<>(sesionesService.sesionesActivas(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{sesionId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> validarSesion(@PathVariable(name = "sesionId") String sesionId ) {
+        sesionesService.validarSiExisteSesion(getSesionDto(sesionId));
+        log.info(Constantes.SESION_VALIDA);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SesionDto> nuevaSesion() {
         SesionDto sesionDto = sesionesService.nuevaSesion();
