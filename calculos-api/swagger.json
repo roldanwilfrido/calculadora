@@ -1,0 +1,65 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8880",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/calculos/{sesionId}/{operacion}": {
+      "get": {
+        "tags": [
+          "calculos-controller"
+        ],
+        "operationId": "realizarOperacion",
+        "parameters": [
+          {
+            "name": "sesionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "operacion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RespuestaDto": {
+        "type": "object",
+        "properties": {
+          "resultado": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
