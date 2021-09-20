@@ -74,11 +74,11 @@
           }
         }
       },
-      "delete": {
+      "patch": {
         "tags": [
           "numeros-controller"
         ],
-        "operationId": "limpiarSesionYAgregarNuevoNumero",
+        "operationId": "sobreescribirLosNumerosDeUnaSesion",
         "parameters": [
           {
             "name": "sesionId",

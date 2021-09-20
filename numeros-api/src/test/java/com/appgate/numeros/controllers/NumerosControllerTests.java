@@ -69,7 +69,7 @@ public class NumerosControllerTests {
     }
 
     @Test
-    void limpiarSesionYAgregarNuevoNumero() throws Exception {
+    void sobreescribirLosNumerosDeUnaSesion() throws Exception {
         UUID sesionId = UUID.randomUUID();
         NumerosXSesionDto dto = new NumerosXSesionDto(sesionId, 21.7);
         doNothing().when(service).sobreescribirLosNumerosDeUnaSesion(sesionId, dto);
