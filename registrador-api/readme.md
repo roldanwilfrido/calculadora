@@ -1,7 +1,7 @@
-#Registrador-API
+# Registrador-API
 Servidor de Eureka para registrar las apis 
 
-###Pasos para ejecutarlo
+### Pasos para ejecutarlo
 1. Generación del Jar:
 ```
 ./gradlew clean bootJar
@@ -15,10 +15,10 @@ docker build --tag=registrador-api:latest .
 docker run -p 8761 registrador-api:latest
 ```
 
-###Acceso
+### Acceso
 [Path base](http://localhost:8761)
 
-###Información adicional
+### Información adicional
 Herramienta  | Versión
 ------------- | -------------
 Spring boot  | 2.5.2
