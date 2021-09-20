@@ -1,7 +1,7 @@
-#Gateway-API
+# Gateway-API
 Api que provee un solo punto de acceso a las apis
 
-###Pasos para ejecutarlo
+### Pasos para ejecutarlo
 1. Generación del Jar:
 ```
 ./gradlew clean bootJar
@@ -19,10 +19,10 @@ docker run -p8080:8080 -e EUREKA_URI=http://<MI_IP>:8761/eureka -e SESIONES_API=
 docker run -p8080:8080 -e EUREKA_URI=http://192.168.0.7:8761/eureka -e SESIONES_API=http://192.168.0.7:8877 -e NUMEROS_API=http://192.168.0.7:8879 -e CALCULOS_API=http://192.168.0.7:8880 gateway-api:latest
 ```
 
-###Acceso
+### Acceso
 [Path base](http://localhost:8080)
 
-###Información adicional
+### Información adicional
 Herramienta  | Versión
 ------------- | -------------
 Spring boot  | 2.3.7.RELEASE
