@@ -72,8 +72,8 @@ public class NumerosControllerTests {
     void limpiarSesionYAgregarNuevoNumero() throws Exception {
         UUID sesionId = UUID.randomUUID();
         NumerosXSesionDto dto = new NumerosXSesionDto(sesionId, 21.7);
-        doNothing().when(service).removerNumerosXSesion(sesionId, dto);
-        mockMvc.perform(delete("/numeros/" + sesionId)
+        doNothing().when(service).sobreescribirLosNumerosDeUnaSesion(sesionId, dto);
+        mockMvc.perform(patch("/numeros/" + sesionId)
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto))).andExpect(status().isOk());
     }
 
@@ -82,7 +82,7 @@ public class NumerosControllerTests {
         UUID sesionId = UUID.randomUUID();
         NumerosXSesionDto dto = new NumerosXSesionDto(sesionId, 58);
         doThrow(new SesionesApiException("")).when(sesionesClientService).validarSesion(sesionId.toString());
-        mockMvc.perform(delete("/numeros/" + sesionId)
+        mockMvc.perform(patch("/numeros/" + sesionId)
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto))).andExpect(status().isBadRequest());
     }
 
@@ -91,7 +91,7 @@ public class NumerosControllerTests {
         UUID sesionId = UUID.randomUUID();
         NumerosXSesionDto dto = new NumerosXSesionDto(sesionId, 20008);
         doThrow(new RecursoException("")).when(sesionesClientService).validarSesion(sesionId.toString());
-        mockMvc.perform(delete("/numeros/" + sesionId)
+        mockMvc.perform(patch("/numeros/" + sesionId)
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(dto))).andExpect(status().is5xxServerError());
     }
 }

@@ -29,7 +29,7 @@ public class NumerosService {
         numerosXSesionRepository.save(objetoBuilder(dto));
     }
 
-    public void removerNumerosXSesion(UUID sesionId, NumerosXSesionDto dto) {
+    public void sobreescribirLosNumerosDeUnaSesion(UUID sesionId, NumerosXSesionDto dto) {
         numerosXSesionRepository.borrarNumerosPorSesion(sesionId);
         dto.setSesion(sesionId);
         numerosXSesionRepository.save(objetoBuilder(dto));

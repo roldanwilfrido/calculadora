@@ -58,7 +58,7 @@ public class NumerosServiceTests {
         when(repo.save(eq(numerosXSesion))).thenReturn(numerosXSesion);
 
         service = new NumerosService(repo);
-        service.removerNumerosXSesion(sesionId, dto);
+        service.sobreescribirLosNumerosDeUnaSesion(sesionId, dto);
 
         verify(repo, times(1)).save(any(NumerosXSesion.class));
     }

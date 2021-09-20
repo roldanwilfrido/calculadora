@@ -46,13 +46,13 @@ public class NumerosController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity<Void> limpiarSesionYAgregarNuevoNumero(@PathVariable(name = "sesionId") String sesionId,
+    @RequestMapping(method = RequestMethod.PATCH)
+    public ResponseEntity<Void> sobreescribirLosNumerosDeUnaSesion(@PathVariable(name = "sesionId") String sesionId,
                                                            @RequestBody NumerosXSesionDto numero) {
         sesionesClientService.validarSesion(sesionId);
-        numerosService.removerNumerosXSesion(UUID.fromString(sesionId), numero);
+        numerosService.sobreescribirLosNumerosDeUnaSesion(UUID.fromString(sesionId), numero);
 
-        log.info(Constantes.NUMEROS_REMOVIDOS);
+        log.info(Constantes.NUMEROS_SOBREESCRITOS);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
