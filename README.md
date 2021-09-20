@@ -25,7 +25,8 @@ Cerciore que todas las apis aparezcan registradas [aquí](http://localhost:8761)
 ![](imagenes/registrador-api.png)
 
 
-###Diagrama
+### Diagrama
+
 ![](imagenes/diagrama.png)
 
 Cualquier información adicional no dude en contactarme a [roldanhollow@gmail.com](mailto:roldanhollow@gmail.com)
