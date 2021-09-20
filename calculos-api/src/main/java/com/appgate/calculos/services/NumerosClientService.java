@@ -45,10 +45,10 @@ public class NumerosClientService {
 			throw new NumerosApiException(Constantes.ERROR_OBTENIENDO_NUMEROS);
 		}
 	}
-	public void blanquearLaListaDeNumerosDeLaSesionYAgregarUnNumeroNuevo(String sesionId, NumerosDto dto) {
+	public void sobreescribirLosNumerosDeUnaSesion(String sesionId, NumerosDto dto) {
 		try {
 			unirestWrapper
-					.borrar(this.numerosServiceUrl + "/numeros/" + sesionId, mapper.writeValueAsString(dto));
+					.patch(this.numerosServiceUrl + "/numeros/" + sesionId, mapper.writeValueAsString(dto));
 			log.info(Constantes.NUMEROS_ACTUALIZADOS);
 		} catch (JsonProcessingException e) {
 			throw new NumerosApiException(Constantes.ERROR_BLANQUEANDO_SESION);

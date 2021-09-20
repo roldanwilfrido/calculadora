@@ -26,10 +26,10 @@ public class UnirestWrapper {
         return resp.getBody();
     }
 
-    public JsonNode borrar(String url, String json) {
+    public JsonNode patch(String url, String json) {
         HttpResponse<JsonNode> resp;
         try {
-            resp = Unirest.delete(url)
+            resp = Unirest.patch(url)
                     .header("content-type", MediaType.APPLICATION_JSON_VALUE)
                     .body(json).asJson();
         } catch(Exception e) {

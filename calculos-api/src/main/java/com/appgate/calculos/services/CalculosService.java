@@ -29,7 +29,7 @@ public class CalculosService {
         RespuestaDto respuestaDto = operacionesService.getResultado(operacion, numeros);
         NumerosDto dto = new NumerosDto();
         dto.setNumero(respuestaDto.getResultado());
-        numerosClientService.blanquearLaListaDeNumerosDeLaSesionYAgregarUnNumeroNuevo(sesionId, dto);
+        numerosClientService.sobreescribirLosNumerosDeUnaSesion(sesionId, dto);
         return respuestaDto;
     }
 }

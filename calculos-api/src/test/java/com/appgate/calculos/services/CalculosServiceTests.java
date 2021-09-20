@@ -34,7 +34,7 @@ public class CalculosServiceTests {
             service = new CalculosService(numerosClientService, operacionesService);
             service.realizarOperacion(sesionId, operacionesEnum);
         }
-        verify(numerosClientService, times(5)).blanquearLaListaDeNumerosDeLaSesionYAgregarUnNumeroNuevo(eq(sesionId), any(NumerosDto.class));
+        verify(numerosClientService, times(5)).sobreescribirLosNumerosDeUnaSesion(eq(sesionId), any(NumerosDto.class));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CalculosServiceTests {
         service = new CalculosService(numerosClientService, operacionesService);
         CustomException exception = assertThrows(CustomException.class, () -> service.realizarOperacion(sesionId, OperacionesEnum.SUMA));
         assertTrue(Objects.equals(exception.getMessage(), Constantes.INSUFICIENTES_NUMEROS));
-        verify(numerosClientService, times(0)).blanquearLaListaDeNumerosDeLaSesionYAgregarUnNumeroNuevo(eq(sesionId), any(NumerosDto.class));
+        verify(numerosClientService, times(0)).sobreescribirLosNumerosDeUnaSesion(eq(sesionId), any(NumerosDto.class));
     }
 
     private NumerosDto getMockNumeroDto() {

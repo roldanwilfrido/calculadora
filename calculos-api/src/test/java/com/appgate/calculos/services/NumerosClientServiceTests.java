@@ -53,10 +53,10 @@ public class NumerosClientServiceTests {
     @Test
     void blanquearLaListaDeNumerosDeLaSesionYAgregarUnNumeroNuevo() {
         String sesionId = UUID.randomUUID().toString();
-        when(wrapper.borrar(anyString(), anyString())).thenReturn(new JsonNode(""));
+        when(wrapper.patch(anyString(), anyString())).thenReturn(new JsonNode(""));
 
         service = new NumerosClientService(wrapper, "localhost:8879");
-        service.blanquearLaListaDeNumerosDeLaSesionYAgregarUnNumeroNuevo(sesionId, new NumerosDto());
-        verify(wrapper, times(1)).borrar(eq("localhost:8879/numeros/" + sesionId), anyString());
+        service.sobreescribirLosNumerosDeUnaSesion(sesionId, new NumerosDto());
+        verify(wrapper, times(1)).patch(eq("localhost:8879/numeros/" + sesionId), anyString());
     }
 }
