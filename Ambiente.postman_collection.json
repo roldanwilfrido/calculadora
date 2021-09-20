@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "09870a71-0792-4f20-a7ed-2b0fd5537e93",
+		"name": "Ambiente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sesiones-api",
+			"item": [
+				{
+					"name": "Nueva sesion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody)",
+									"postman.setEnvironmentVariable(\"sesionId\", body.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sesiones-api/sesiones/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sesiones-api",
+								"sesiones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sesiones del sistema",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sesiones-api/sesiones/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sesiones-api",
+								"sesiones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verificar sesion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sesiones-api/sesiones/{{sesionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sesiones-api",
+								"sesiones",
+								"{{sesionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cerrar sesion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sesiones-api/sesiones/{{sesionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sesiones-api",
+								"sesiones",
+								"{{sesionId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "numeros-api",
+			"item": [
+				{
+					"name": "Nuevo numero",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/numeros-api/numeros/{{sesionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"numeros-api",
+								"numeros",
+								"{{sesionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Numeros de una sesion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/numeros-api/numeros/{{sesionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"numeros-api",
+								"numeros",
+								"{{sesionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sobreescribir los numeros de una sesion",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/numeros-api/numeros/{{sesionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"numeros-api",
+								"numeros",
+								"{{sesionId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "calculos-api",
+			"item": [
+				{
+					"name": "Sumar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculos-api/calculos/{{sesionId}}/suma",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculos-api",
+								"calculos",
+								"{{sesionId}}",
+								"suma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculos-api/calculos/{{sesionId}}/resta",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculos-api",
+								"calculos",
+								"{{sesionId}}",
+								"resta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiplicar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculos-api/calculos/{{sesionId}}/multiplicacion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculos-api",
+								"calculos",
+								"{{sesionId}}",
+								"multiplicacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dividir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculos-api/calculos/{{sesionId}}/division",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculos-api",
+								"calculos",
+								"{{sesionId}}",
+								"division"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Potenciar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculos-api/calculos/{{sesionId}}/potenciacion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculos-api",
+								"calculos",
+								"{{sesionId}}",
+								"potenciacion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
