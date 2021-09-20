@@ -1,7 +1,7 @@
-#Calculos-API
+# Calculos-API
 Encargado de la administración de los numeros por sesion del ambiente
 
-###Pasos para ejecutarlo
+### Pasos para ejecutarlo
 1. Ejecución de pruebas unitarias y generación del Jar:
 ```
 ./gradlew clean test bootJar
@@ -19,7 +19,7 @@ docker run -p8880:8880 -e EUREKA_URI=http://<MI_IP>:8761/eureka -e NUMEROS_API=h
 docker run -p8880:8880 -e EUREKA_URI=http://192.168.0.7:8761/eureka -e NUMEROS_API=http://192.168.0.7:8879 calculos-api:latest
 ```
 
-###Detalle de Numeros-API
+### Detalle de Numeros-API
 Path base: `http://localhost:8880/calculos`
 
 Endpoint  | Detalle 
@@ -37,7 +37,7 @@ suma, resta, multiplicacion, division, potenciacion... es decir:
 
 Para más información de clic [aquí](http://localhost:8880/docs)
 
-###Información adicional
+### Información adicional
 Herramienta  | Versión
 ------------- | -------------
 Spring boot  | 2.5.2
